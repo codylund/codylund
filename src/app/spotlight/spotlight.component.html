@@ -1,0 +1,38 @@
+<h1>Cody Lund</h1>
+
+<div class="bio">
+  <p>Junior software developer based in Boston and actively exploring the following domains:</p>
+  <ul>
+    <li class="topic">Tech {{ '{' }}
+      <ul>
+          <li>Android</li>
+          <li>MEAN</li>
+          <li>Rust + WASM</li>
+      </ul>
+      {{ '}' }}
+    </li>
+    <li class="topic">Lifestyle {{ '{' }}
+      <ul>
+        <li>Shredding gnar in Vermont and Maine</li>
+        <li>Bouldering</li>
+        <li>Intermitant fasting</li>
+        <li>Vipassana meditation</li>
+      </ul>
+      {{ '}' }}
+    </li>
+  </ul>
+</div>
+
+<div class="contact">
+  <div class="contact-row" (mouseleave) = "isEmailClicked = false">
+    <i class="fas fa-envelope"></i>
+    <span class="item" ngxClipboard
+      (cbOnSuccess) = "isEmailClicked = true"
+      [cbContent]="email">{{ isEmailClicked ? 'Copied!' : email }}</span>
+  </div>
+  <div class="contact-row">
+    <i class="fab fa-github"></i>
+    <a class="item" [href]="getGitHubFullUrl()">{{ getGitHubPretty() }}</a>
+  </div>
+</div>
+  
