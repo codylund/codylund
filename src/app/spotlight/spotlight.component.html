@@ -13,7 +13,7 @@
     </li>
     <li class="topic">Lifestyle {{ '{' }}
       <ul>
-        <li>Shredding gnar in Vermont and Maine</li>
+        <li>Alpine skiing</li>
         <li>Bouldering</li>
         <li>Intermitant fasting</li>
         <li>Vipassana meditation</li>
@@ -28,11 +28,15 @@
     <i class="fas fa-envelope"></i>
     <span class="item" ngxClipboard
       (cbOnSuccess) = "isEmailClicked = true"
-      [cbContent]="email">{{ isEmailClicked ? 'Copied!' : email }}</span>
+      [cbContent]="getPlatformText(platforms.Email)">{{ isEmailClicked ? 'Copied!' : getPlatformText(platforms.Email) }}</span>
   </div>
   <div class="contact-row">
     <i class="fab fa-github"></i>
-    <a class="item" [href]="getGitHubFullUrl()">{{ getGitHubPretty() }}</a>
+    <a class="item" [href]="getFullUrl(platforms.GitHub)">{{ getPlatformText(platforms.GitHub) }}</a>
+  </div>
+  <div class="contact-row">
+    <i class="fab fa-linkedin"></i>
+    <a class="item" [href]="getFullUrl(platforms.LinkedIn)">{{ getPlatformText(platforms.LinkedIn) }}</a>
   </div>
 </div>
   

@@ -7,8 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SpotlightComponent implements OnInit {
 
-  email = 'codylund14@gmail.com';
-  github = 'github.com/codylund'
+  platforms = Platform;
 
   isEmailClicked = false;
 
@@ -17,11 +16,30 @@ export class SpotlightComponent implements OnInit {
   ngOnInit() {
   }
 
-  getGitHubPretty(): string {
-    return this.github;
+  getPlatformText(platform: Platform): string {
+    return this.getBaseUrl(platform);
   }
 
-  getGitHubFullUrl(): string {
-    return "https://" + this.github;
+  getFullUrl(platform: Platform): string {
+    return 'https://' + this.getBaseUrl(platform);
   }
+
+  getBaseUrl(platform: Platform) {
+    switch(platform) {
+      case Platform.Email:
+        return 'codylund14@gmail.com';
+      case Platform.GitHub:
+        return 'github.com/codylund';
+      case Platform.LinkedIn:
+        return 'linkedin.com/in/cody-lund';
+    }
+
+    throw new Error(`Platform ${platform} does not have a base URL!`);
+  }
+}
+
+export enum Platform {
+  Email,
+  GitHub,
+  LinkedIn
 }
